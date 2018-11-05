@@ -1,6 +1,6 @@
-@import 'reset';
-@import 'fonts';
-
+body {
+    width: 100%;
+}
 header {
     background-color: black;
     display: grid;
@@ -11,23 +11,23 @@ header {
 
         .logo {
             background-image: url(/images/logo.png);
-            height: 350px;
-            width: 364px;
+            height: 200px;
+            width: 200px;
             grid-column-start: 2;
             font-size: 20px;
-            // background-size: cover;
+            background-size: cover;
         }
 
         nav {
             order: 3;
             display: grid;
             align-items: end;
-            justify-content: center;
+            // justify-content: center;
             
                 
                ul li {
                     display: inline;
-                    margin: 0 20px;
+                    margin: 0 10px;
                     
                     a {
                         color: white;
@@ -36,6 +36,12 @@ header {
                         font-weight: 300;
                         font-style: normal;
                         font-size: 20px;
+                        transition: .2s ease-in;
+
+                        &:hover {
+                            color: #1485cc;
+                            text-decoration: underline;
+                        }
                     }
                 }
             
@@ -43,10 +49,19 @@ header {
 }
 
 .main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    background-color: red;
-    height: 1000px;
+
+    .grid-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        // background-color: rgb(102, 79, 201);
+        height: 1342px;
+        width: 96%;
+        grid-gap: 15px;
+        margin: 50px auto;
+
+        .content-box {
+            background-color: #f2f2f2;    
+        }
+    }
 
 }
