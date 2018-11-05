@@ -1,0 +1,52 @@
+@import 'reset';
+@import 'fonts';
+
+header {
+    background-color: black;
+    display: grid;
+    color: white;    
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 50px solid black;
+
+        .logo {
+            background-image: url(/images/logo.png);
+            height: 350px;
+            width: 364px;
+            grid-column-start: 2;
+            font-size: 20px;
+            // background-size: cover;
+        }
+
+        nav {
+            order: 3;
+            display: grid;
+            align-items: end;
+            justify-content: center;
+            
+                
+               ul li {
+                    display: inline;
+                    margin: 0 20px;
+                    
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        font-family: 'Open Sans';
+                        font-weight: 300;
+                        font-style: normal;
+                        font-size: 20px;
+                    }
+                }
+            
+        }
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: red;
+    height: 1000px;
+
+}
