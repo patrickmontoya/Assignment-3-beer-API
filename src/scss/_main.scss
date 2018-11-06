@@ -32,9 +32,7 @@ header {
                     a {
                         color: white;
                         text-decoration: none;
-                        font-family: 'Open Sans';
-                        font-weight: 300;
-                        font-style: normal;
+                        @extend %openSansLight;
                         font-size: 20px;
                         transition: .2s ease-in;
 
@@ -53,15 +51,66 @@ header {
     .grid-box {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        // background-color: rgb(102, 79, 201);
-        height: 1342px;
+        height: 1500px;
         width: 96%;
-        grid-gap: 15px;
+        grid-gap: 30px;
         margin: 50px auto;
 
         .content-box {
-            background-color: #f2f2f2;    
+            background-color: #f2f2f2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+
+            .vice-bier {
+                width: 150px;
+            }
+            
+            img {
+                height: 275px;
+                width: 75px;
+            }
+
+            h1 {
+                font-size: 25px;
+                margin: 5% 0;
+                @extend %openSansBold;
+            }
+
+            p {
+                width: 80%;
+                font-size: 20px;
+                @extend %openSansLight;
+            }
+
+            h2 {
+                font-size: 20px;
+                @extend %playfairDisplayRegular;
+            }
+
+            h3 {
+                font-size: 30px;
+                @extend %playfairDisplayBold;
+            }
+
+            .characteristics {
+                display: flex;
+            }
+              
+            a {
+                margin: 10px;
+                text-align: center;
+                margin: 10px;
+                padding: 20px;
+                text-decoration: none;
+                color: black;
+        
+                &:hover{    
+                    background-color: yellow;
+                }  
+            }                      
         }
     }
-
 }

@@ -1,0 +1,66 @@
+$fontColor: #ffffff;
+$backGroundColor: #000000;
+$fontFamily: 'Open Sans';
+$fontWeight: '300';
+$opaque: rgba(0,0,0,0.7);
+
+%flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+%openSansBold {
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-style: normal;
+}
+
+%openSansLight {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-style: normal;
+}
+
+%openSansBoldItalic {
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-style: italic;
+}
+
+%openSansLightItalic {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-style: italic;
+}
+
+%playfairDisplayBoldItalic {
+    font-family: 'Playfair Display';
+    font-weight: bold;
+    font-style: italic;
+}
+
+%playfairDisplayItalic {
+    font-family: 'Playfair Display';
+    font-weight: normal;
+    font-style: italic;
+}
+
+%playfairDisplayBold {
+    font-family: 'Playfair Display';
+    font-weight: bold;
+    font-style: normal;
+}
+
+%playfairDisplayRegular {
+    font-family: 'Playfair Display';
+    font-weight: normal;
+    font-style: normal;
+}
+
+%font-initial {
+    font-style: initial;
+    font-size: 16px;
+    text-decoration: none;
+}
