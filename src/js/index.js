@@ -1,52 +1,49 @@
-function getUrl(section) {
-    var url = "https://api.nytimes.com/svc/topstories/v2/" + section + ".json";
-    url +=
-      "?" +
-      $.param({
-        "api-key": "82f12f3e4189492f86578cb2d4e6add0"
-      });
-    return url;
+class boxData {
+  constructor(image, name, description, abv, ibu, ph, tagline){
+    this.image = image;
+    this.name = name;
+    this.descrition = description;
+    this.abv = abv;
+    this.ibu = ibu;
+    this.ph = ph;
+    this.tagline = tagline;
   }
-  $(function() {
-    $(".dropdown").on("change", function(event) {
-      $(".loading").css("display", "flex");
-      $(".api-loader").empty();
-      $(".flex-container").addClass("select");
-  
-      $.ajax({
-        url: getUrl($("select").val()),
-        method: "GET"
-      })
-        .done(function(data) {
-          let newsCount = 0;
-          const results = data.results;
-          for (let i = 0; i < results.length; i++) {
-            let result = data.results[i];
-            if (result.multimedia.length < 4) {
-              continue;
-            }
-            $(".api-loader")
-              .append(
-                '<a target="_blank" href="' +
-                  result.url +
-                  '"><div class="news-item"><p> ' +
-                  result.abstract +
-                  " </p></div></a>"
-              )
-              .css("color", "white");
-            $(".news-item")
-              .last()
-              .css("background-image", 'url("' + result.multimedia[4].url + '")');
-            newsCount++;
-            if (newsCount >= 12) {
-              break;
-            }
-          }
-          $(".loading").css("display", "none");
-        })
-        .fail(function(err) {
-          throw err;
-        });
-    });
-  });
-  
+};
+
+class ingredients {
+  constructor(malt, hops, yeast){
+    this.malt = malt;
+    this.hops = hops;
+    this.yeast = yeast;
+  }
+};
+
+var url = "https://api.punkapi.com/v2/beers?page=1&per_page=6";
+
+$.ajax({
+  url: url,
+  method: 'GET',
+}).done(function(data) {
+    let beer = []
+    data.forEach(element => {
+      beer.push(new boxData(element.image_url, element.name, element.description, element.abv, element.ibu, element.ph));
+      $(.grid-box).append('<div class="content-box"><img src="'+element.image_url+'" alt=""><h1>'+element.name+'</h1><p>'+element.description+'</p><div class="characteristics"><a href=""><h2>ABV</h2><h3>4.1</h3></a><a href=""><h2>IBU</h2><h3>41.5</h3></a><a href=""><h2>pH</h2><h3>4.4</h3></a></div>')
+});
+
+console.log(beer);
+})
+
+$.ajax({
+  url: "https://api.punkapi.com/v2/beers/random",
+  method: 'GET',
+}).done(function(data) {
+    let randomBeer = []
+    let spices = []
+    data.forEach(element => {
+      randomBeer.push(new boxData(element.image_url, element.name, element.description, element.abv, element.ibu, element.ph, element.tagline));
+      spices.push(new ingredients(element.ingredients.malt, element.ingredients.hops, element.ingredients.yeast));
+});
+
+console.log(randomBeer);
+console.log(spices);
+})
