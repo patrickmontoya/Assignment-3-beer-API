@@ -7,8 +7,8 @@ header {
     color: white;    
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr;
-    border-bottom: 40px solid black;
-    border-top: 40px solid black;
+    border-bottom: 30px solid black;
+    border-top: 20px solid black;
 
     .logo {
         background-image: url(/images/logo.png);
@@ -49,265 +49,400 @@ header {
     }
 }
 
-.grid-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 99%;
-    grid-gap: 30px;
-    margin: 50px auto;
+#beers {
+    // visibility: hidden;
+    // animation: 1s ease-in;
+    // display: none;
+
+    .grid-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 99%;
+        grid-gap: 30px;
+        margin: 50px auto;
+
+        .content-box {
+            background-color: #f2f2f2;
+            @extend %flex;
+            text-align: center;
+            height: 800px;
+
+            &:hover {
+                background-color: rgb(228, 228, 228);
+            }
+
+            .vice-bier {
+                width: 150px;
+            }
+
+            img {
+                height: 275px;
+                width: auto;
+            }
+
+            h1 {
+                font-size: 22px;
+                margin: 5% 0;
+                @extend %openSansBold;
+            }
+
+            p {
+                width: 71%;
+                font-size: 20px;
+                @extend %openSansLight;
+                height: 15rem;
+            }
+
+            h2 {
+                font-size: 20px;
+                @extend %playfairDisplayRegular;
+            }
+
+            h3 {
+                font-size: 30px;
+                @extend %playfairDisplayBold;
+            }
+
+            .characteristics {
+                display: flex;
+            }
+
+            a {
+                margin: 10px;
+                text-align: center;
+                margin: 10px;
+                padding: 20px;
+                text-decoration: none;
+                color: black;
+            
+                &:hover{    
+                    background-color: #FBBA00;
+                }  
+            }                      
+        }
+    }
+}
+
+#quick-find {
+    visibility: hidden;
+    animation: 1s ease-in;
+    display: none;
+
+    .quick {
+        display: grid;
+        grid-template-columns: 1fr;
+        background-color:whitesmoke;
+        height: 450px;
+        width: 99%;
+        margin: 40px auto;
+
+        .quick-box {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Open Sans';
+            font-style: normal;
+            margin-bottom: 70px;
+        }
+
+        .quick-beer {
+            order:1;
+            width: 200px;
+        }
+
+        aside {
+            order:2;
+            display:flex;
+            flex-direction: column;
+            width: 450px;
+            align-items: center;
+        }
     
-    .content-box {
-        background-color: #f2f2f2;
-        @extend %flex;
-        text-align: center;
-        height: 800px;
-
-        .vice-bier {
-            width: 150px;
-        }
-        
-        img {
-            height: 275px;
-            width: 75px;
-        }
-
         h1 {
-            font-size: 20px;
-            margin: 5% 0;
-            @extend %openSansBold;
+            order: 2;
+            font-size: 24px;
+            font-weight: 500;
+            padding: 10px 0;
+            font-weight: 600;
+        }
+
+        h4 {
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight: 400;
         }
 
         p {
-            width: 71%;
             font-size: 17px;
-            @extend %openSansLight;
-            height: 10rem;
+        }
+    
+        .quickP {
+            text-align: center;
+
+            h1 {
+                @extend %openSansBold;
+            }
+
+            p {
+                @extend %openSansLight;
+            }
+
+            h4 {
+                color: #1485CC;
+            }
         }
 
-        h2 {
-            font-size: 20px;
-            @extend %playfairDisplayRegular;
-        }
-
-        h3 {
-            font-size: 30px;
-            @extend %playfairDisplayBold;
+        .bottle-size {
+            height: 365px;
+            width: auto;
         }
 
         .characteristics {
             display: flex;
         }
-          
+
         a {
             margin: 10px;
             text-align: center;
-            margin: 10px;
-            padding: 20px;
+            padding: 10px;
             text-decoration: none;
             color: black;
-    
+
             &:hover{    
-                background-color: yellow;
-            }  
+                background-color: #FBBA00;
+            }
+
+            h2 {
+                @extend %playfairDisplayRegular;
+            }
+
+            h3 {
+                @extend %playfairDisplayBold;
+                font-size: 25px;
+            }
         }                      
+    
+        button {
+            @extend %styleButton;
+            @extend %openSansBold;
+            margin: 10px;
+            background-color: #1485cc;
+            transition: 0.1s ease-in-out;
+
+            &:hover {
+                background-color: #166ca1;
+            }
+        }
     }
 }
 
-.quick {
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color:whitesmoke;
-    height: 700px;
-    width: 99%;
-    margin: 40px auto;
+.stupid-button {
+      @extend %flex;
 
-    .quick-box {
-        display:flex;
-        justify-content: center;
-        align-items: center;
+    .random {
+        @extend %styleButton;
+        @extend %openSansBold;
+        background-color: #ffca00;
+        margin: 20px;
+
+        &:hover {
+            background-color: #c79f00;
+            transition: 0.1s ease-in-out;
+        }
+    }
+}
+
+#pick-beer {
+    display: none;
+    visibility: hidden;
+
+    .pick-a-beer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        background-color: #F4F4F4;
+        width: 50%;
+        margin: auto;
         font-family: 'Open Sans';
+        font-weight: 300;
         font-style: normal;
-        margin-bottom: 70px;
-    }
+        overflow: hidden;
 
-    .quick-beer {
-        order:1;
-        width: 200px;
-    }
+        .form-pick-a-beer {
+            height: 70px;
+        }
 
-    aside {
-        order:2;
-        display:flex;
-        flex-direction: column;
-        width:450px;
-        align-items: center;
-    }
- 
-    h1 {
-        order: 2;
-        font-size: 24px;
-        font-weight: 500;
-        padding: 10px 0;
-        font-weight: 600;
-    }
+        #text-pick {
+            grid-column: 1;
+            grid-row: 1;
+            color: #0C6CD4;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            margin-top: 35px;
+            margin-bottom: 30px;
+        }
 
-    h4 {
-        padding: 20px 0;
-        font-size: 30px;
-        font-weight:400;
-    }
+        .name-pick {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row: 2;
+            justify-self: start;
+            margin-left: 35px;
 
-    p {
-        font-size: 17px;
-    }
- 
-    .quickP {
-        text-align: center;
-    }
+            input {
+                height: 30px;
+                width: 180px;
+                margin-left: 10px;
+            }
+        }
 
-    .bottle-size {
-        height: 365px;
-        width: 100px;
-    }
+        .hops-pick {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row: 2;
+            margin-left: 110px;
+            justify-self: center;
 
-    .characteristics {
-        display: flex;
-    }
-      
-    a {
-        margin: 10px;
-        text-align: center;
-        padding: 10px;
-        text-decoration: none;
-        color: black;
+            input{
+                height: 30px;
+                width: 180px;
+                margin-left: 10px;
+            }
+        }
 
-        &:hover{    
-            background-color: yellow;
-        }  
-    }                      
- 
-    button {
-        width:130px;
-        height:35px;
-        margin: 30px auto;
-        color:white;
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        background-color: #1485cc;
-        border: none;
-    }
- }
+        .abv-pick {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row: 3;
+            justify-self: center;
 
-.pick-a-beer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    background-color: #F4F4F4;
-    width: 50%;
-    margin: auto;
-    font-family: 'Open Sans';
-    font-weight: 300;
-    font-style: normal;
-    overflow: hidden;
+            input {
+                height: 30px;
+                width: 90px;
+                margin-left: 10px;
+            }
+        }
+
+        .ibu-pick {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row: 3;
+            justify-self: center;
+
+            input {
+                height: 30px;
+                width: 90px;
+                margin-left: 10px;
+            }
+        }
+
+        .ebc-pick {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row: 3;
+            justify-self: center;
+
+            input {
+                height: 30px;
+                width: 90px;
+                margin-left: 10px;
+            }
+        }
+
+        .button-pick-a-beer {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row: 4;
+            justify-self: center;
+        
+        button {
+            background-color: #047CBB;
+             padding: 10px 13px;
+             color: white;
+             border: none;
+             font-family: 'Open Sans';
+             font-weight: 600;
+             font-style: normal;
+             font-size: 12px;
+            }
+        }
+    }
+}
+
+:root {
+    --modal-duration: 1s;
+    --modal-color: #428bca;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .modal-content {
+        margin: 10% auto;
+        width: 60%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+        animation-name: modalopen;
+        animation-duration: var(--modal-duration);
+
+        .modal-body {
+            padding: 10px 20px;
+            background: #fff;            
+
+            li {
+                margin: 50px;
+                font-size: 22px;
+            }
+        }
     
-    .form-pick-a-beer {
-        height: 70px;
+        .modal-header {
+            background: var(--modal-color);
+            padding: 40px;
+            color: #fff;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+
+            h2 {
+                order: 1;
+                font-size: 22px;
+            }
+
+            span {
+                order: 2;
+            }
+          
+            .close {
+                color: #ccc;
+                float: right;
+                font-size: 30px;
+                color: #fff;
+
+                &:hover {
+                    color: black;
+                }
+
+                &:hover {
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            }
+
+            .modal-header h2, .modal-footer h3 {
+                margin: 0;
+                
+            }
+        }  
     }
-
-    #text-pick {
-        grid-column: 1;
-        grid-row: 1;
-        color: #0C6CD4;
-        font-weight: 600;
-        display: flex;
-        justify-content: center;
-        margin-top: 35px;
-        margin-bottom: 30px;
-    }
-
-    .name-pick {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row: 2;
-        justify-self: start;
-        margin-left: 35px;
-
-        input {
-            height: 30px;
-            width: 180px;
-            margin-left: 10px;
-        }
-    }
-
-    .hops-pick {
-        grid-column-start: 2;
-        grid-column-end: 4;
-        grid-row: 2;
-        margin-left: 110px;
-        justify-self: center;
-
-        input{
-            height: 30px;
-            width: 180px;
-            margin-left: 10px;
-        }
-    }
-
-    .abv-pick {
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row: 3;
-        justify-self: center;
-
-        input {
-            height: 30px;
-            width: 90px;
-            margin-left: 10px;
-        }
-    }
-
-    .ibu-pick {
-        grid-column-start: 2;
-        grid-column-end: 3;
-        grid-row: 3;
-        justify-self: center;
-
-        input {
-            height: 30px;
-            width: 90px;
-            margin-left: 10px;
-        }
-    }
-
-    .ebc-pick {
-        grid-column-start: 3;
-        grid-column-end: 4;
-        grid-row: 3;
-        justify-self: center;
-
-        input {
-            height: 30px;
-            width: 90px;
-            margin-left: 10px;
-        }
-    }
-
-    .button-pick-a-beer {
-        grid-column-start: 3;
-        grid-column-end: 4;
-        grid-row: 4;
-        justify-self: center;
+}
   
-    button {
-        background-color: #047CBB;
-         padding: 10px 13px;
-         color: white;
-         border: none;
-         font-family: 'Open Sans';
-         font-weight: 600;
-         font-style: normal;
-         font-size: 12px;
-        }
-    }
-  }
