@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/build.css" />
+    <title>Beer!</title>
+  </head>
+
+  <body>
+
+    <header>
+      <a class="logo" href="#"></a>
+    <nav>
+      <ul>
+        <li><a class="click-beer" href="#beers">BEERS</a></li>
+        <li><a class="click-find" href="#quick-find">QUICK FIND</a></li>
+        <li><a class="click" href="#pick-beer">PICK A BEER</a></li>
+      </ul>
+    </nav>
+    </header>
+
+    <section id="beers">
+      <div class="grid-box">
+    </section>
+    <section id="quick-find">
+      <div class="quick">
+      </div>
+    <div class="stupid-button">
+      <button class="random">GIVE ME ANOTHER BEER</button>
+    </div>
+    </section>
+
+    <section id="pick-beer">
+      <div class="pick-a-beer">
+        <div>
+          <h1 id=‘text-pick’>PICK A BEER</h1>
+        </div>
+          <div class="name-pick">
+            <form class="form-pick-a-beer">
+              <label id=‘name-search’>NAME</label>
+              <input id=‘name-input’>
+            </form>
+          </div>
+            <div class="hops-pick">
+              <form class="form-pick-a-beer">
+                <label id=‘hops-search’>HOPS</label>
+                <input id=‘hops-input’>
+              </form>
+            </div>
+            <div class=‘abv-pick’>
+              <form class="form-pick-a-beer">
+                <label id=‘abv-search’>ABV</label>
+                <input id=‘abv-input’>
+              </form>
+            </div>
+            <div class=‘ibu-pick’>
+              <form class="form-pick-a-beer">
+                <label id=‘ibu-search’>IBU</label>
+                <input id=‘ibu-input’>
+              </form>
+            </div>
+            <div class=‘ebc-pick’>
+              <form class="form-pick-a-beer">
+                <label id=‘ebc-search’>EBC</label>
+                <input id=‘ebc-input’>
+              </form>
+            </div>
+              <div class="button-pick-a-beer">
+                <button class="pick-a-beer-but">PICK A BEER</button>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <button id="modal-btn" class="button">Click Here</button> -->
+
+  <div id="my-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Ingredients</h2>
+      </div>
+      <div class="modal-body">
+        <!-- <ul>
+          <li>Malt:<p>did stuff here</p></li>
+          
+          <li>Hops:<p>did stuff here</p></li>
+          
+          <li>Yeast:<p>did stuff here</p></li>
+          
+        </ul> -->
+      </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+    <script src="js/bundle.js"></script>
+  </body>
+</html>
