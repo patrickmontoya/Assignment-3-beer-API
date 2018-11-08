@@ -394,12 +394,17 @@ header {
         animation-duration: var(--modal-duration);
 
         .modal-body {
-            padding: 10px 20px;
+            padding: 60px 20px;
             background: #fff;            
 
             li {
                 margin: 50px;
                 font-size: 22px;
+                @extend %openSansBold;
+
+                p {
+                    @extend %openSansRegular;
+                }
             }
         }
     
@@ -416,6 +421,7 @@ header {
             h2 {
                 order: 1;
                 font-size: 22px;
+                @extend %openSansBold;
             }
 
             span {
@@ -445,4 +451,32 @@ header {
         }  
     }
 }
-  
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+
+    .pagination {
+        grid-column-start: 2;
+        align-self: center;
+
+        .active {
+                background-color: #1485CC;
+                color: white;
+            }
+
+        a {
+            @extend %openSansLight;
+            font-size: 25px;
+            padding: 15px 23px;
+            text-decoration: none;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: #1485CC;
+                color: white;
+            }
+        }
+    }
+}

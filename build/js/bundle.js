@@ -65,11 +65,13 @@ $('.random').on('click', function () {
 $('.click-find').on('click', function () {
   $('#quick-find').css('visibility', 'visible').css('display', 'grid');
   $('#beers').css('display', 'none');
+  $('footer').css('display', 'none');
   loadBeer();
 });
 
 $("body").on("click", ".click-beer", function () {
   $('#beers').css('display', 'grid');
+  $('footer').css('display', 'grid');
   loadBeer();
 });
 
@@ -136,5 +138,55 @@ function modalIngredients() {
     console.log(spices);
   });
 }
+
+$('body').on('click', '.page-number', function () {
+  $('.page-number').removeClass("active");
+  $(this).addClass("active");
+  $('main').empty();
+  getBeer();
+});
+
+$('body').on('click', '.next', function () {
+  if ($('.active').next().hasClass('page-number')) {
+    $('.active').removeClass('active').next().addClass('active');
+  }
+  $('main').empty();
+  getBeer();
+});
+
+$('body').on('click', '.previous', function () {
+  if ($('.active').prev().hasClass('page-number')) {
+    $('.active').removeClass('active').prev().addClass('active');
+  }
+  $('main').empty();
+  getBeer();
+});
+
+function getBeer() {
+  var url = "https://api.punkapi.com/v2/beers";
+  url += '?' + $.param({
+    'page': $('.active').text(),
+    'per_page': 6
+  });
+
+  $.ajax({
+    method: 'GET',
+    url: url
+  }).done(function (data) {
+    var beer = [];
+    $('.grid-box').empty();
+    data.forEach(function (element) {
+      beer.push(new boxData(element.name, element.description, element.image_url, element.abv, element.ibu, element.ph));
+
+      $('.grid-box').append('<div class="content-box"><img src="' + element.image_url + '" alt=""><h1>' + element.name + '</h1><p>' + element.description + '</p><div class="characteristics"><a href=""><h2>ABV</h2><h3>' + element.abv + '</h3></a><a href=""><h2>IBU</h2><h3>' + element.ibu + '</h3></a><a href=""><h2>pH</h2><h3>' + element.ph + '</h3></a></div>');
+    });
+
+    console.log(beer);
+  });
+}
+
+$('.page-number').on('click', function () {
+  $(this).toggleClass("active");
+});
 
 },{}]},{},[1]);
